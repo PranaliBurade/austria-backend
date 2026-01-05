@@ -133,14 +133,15 @@ const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 const app = express();
-
-// ✅ Middleware
 app.use(cors({
-  // origin: ["https://your-frontend-domain.com"],
-   origin: ["http://localhost:5173"],
+  origin: [
+    "http://localhost:5173",
+    "https://austria-website.onrender.com" // frontend live URL
+  ],
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
 }));
+
 app.use(express.json());
 
 // ✅ Health check
@@ -190,7 +191,7 @@ app.post("/api/request-demo", async (req, res) => {
 });
 console.log("OWNER_EMAIL:", process.env.OWNER_EMAIL);
 
-console.log("Request body:", req.body);
+
 
 // ✅ Start server
 const PORT = process.env.PORT || 5000;
