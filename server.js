@@ -136,7 +136,6 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    // "https://austria-website.onrender.com" 
     "https://austria-frontend.onrender.com"
 
   ],
